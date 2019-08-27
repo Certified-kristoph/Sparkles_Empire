@@ -120,6 +120,11 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      body: new ListView(
+        children: <Widget>[
+          image_carousel
+        ],
+      ),
     );
   }
 }
