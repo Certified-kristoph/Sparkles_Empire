@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
-
+import 'elements/horizontal_list_view.dart';
+import 'elements/products.dart';
+import 'package:sparkles_empire/elements/horizontal_list_view.dart';
+import 'package:sparkles_empire/elements/products.dart';
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -9,19 +12,25 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-  Widget image_carousel = new Container(
-    height: 200.0,
-    child: new Carousel(
-      boxFit: BoxFit.cover,
-      images: [
-        AssetImage('images/bk(1).jpg'),
-      ],
-      autoplay: false,
-      animationCurve: Curves.fastOutSlowIn,
-      animationDuration: Duration(milliseconds: 1000),
-    ),
-  );
-    
+    Widget imageCarousel = new Container(
+      height: 200.0,
+      child: new Carousel(
+        boxFit: BoxFit.cover,
+        images: [
+          AssetImage('images/bk4.jpg'),
+          AssetImage('images/bk6.jpg'),
+          AssetImage('images/bk7.jpg'),
+        ],
+        autoplay: true,
+        animationCurve: Curves.fastOutSlowIn,
+        animationDuration: Duration(milliseconds: 1000),
+        dotSize: 4.0,
+        dotBgColor: Colors.white,
+        dotColor: Colors.red,
+        indicatorBgPadding: 2.0,
+      ),
+    );
+
     return Scaffold(
       appBar: new AppBar(
         elevation: 0.5,
@@ -122,7 +131,31 @@ class _HomePageState extends State<HomePage> {
       ),
       body: new ListView(
         children: <Widget>[
-          image_carousel
+          //Image Carousel
+          imageCarousel,
+          //Categories padding widget
+          new Padding(
+            padding: EdgeInsets.all(8.0),
+            child: new Text('Categories'),
+          ),
+
+          //Horizontal list view for categories
+          HorizontalList(),
+
+          //Padding Widget
+          Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Text(
+              'Recent Projects',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13.0),
+            ),
+          ),
+
+          //GridView
+          Container(
+            height: 320.0,
+            child: Products(),
+          )
         ],
       ),
     );
