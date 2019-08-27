@@ -18,9 +18,28 @@ class _HomePageState extends State<HomePage> {
               Icons.search,
               color: Colors.white,
             ),
-            onPressed: (){},
-          )
+             onPressed: (){},
+            ),
+          new IconButton(
+            icon: Icon(
+              Icons.shopping_cart,
+              color: Colors.white,
+            ),
+             onPressed: (){},
+            ),
         ],
+      ),
+
+      drawer: new Drawer(
+        child: new ListView(
+          children: <Widget>[
+            //header part of the drawer
+            new UserAccountsDrawerHeader(
+              accountName: Text('Kristos Akalugwu'),//User acoount name
+              accountEmail: Text('Kristosakalugwu@gmail.com'),//User account Email
+            )
+          ],
+        ),
       ),
     );
   }
