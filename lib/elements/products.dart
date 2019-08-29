@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sparkles_empire/pages/product_details.dart';
 
 class Products extends StatefulWidget {
   @override
@@ -6,7 +7,7 @@ class Products extends StatefulWidget {
 }
 
 class _ProductsState extends State<Products> {
-  var product_List = [
+  var productList = [
     {
       "name": "Shoe",
       "picture": "images/shoes/shoe1.jpg",
@@ -24,59 +25,68 @@ class _ProductsState extends State<Products> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        itemCount: product_List.length,
+        itemCount: productList.length,
         gridDelegate:
             new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
-          return Single_product(
-            product_name: product_List[index]['name'],
-            product_picture: product_List[index]['picture'],
-            product_oldprice: product_List[index]['old_price'],
-            product_price: product_List[index]['price'],
+          return Singleproduct(
+            productname: productList[index]['name'],
+            productpicture: productList[index]['picture'],
+            productoldprice: productList[index]['old_price'],
+            productprice: productList[index]['price'],
           );
         });
   }
 }
 
-class Single_product extends StatelessWidget {
-  final product_name;
-  final product_picture;
-  final product_oldprice;
-  final product_price;
+class Singleproduct extends StatelessWidget {
+  final productname;
+  final productpicture;
+  final productoldprice;
+  final productprice;
 
-  Single_product({
-    this.product_name,
-    this.product_picture,
-    this.product_oldprice,
-    this.product_price,
+  Singleproduct({
+    this.productname,
+    this.productpicture,
+    this.productoldprice,
+    this.productprice,
   });
   @override
   Widget build(BuildContext context) {
     return Card(
         child: Hero(
-      tag: product_name,
+      tag: productname,
       child: Material(
         child: InkWell(
-          onTap: () {},
+          onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+            //this is for passing product details and values from one page to the clicked one
+              builder: (context) => new ProductDetails(
+                productdetailname: productname,
+                productdetailnewprice: productprice,
+                productdetailoldprice: productoldprice,
+                productdetailpicture: productpicture,
+              ))),
           child: GridTile(
             child: Image.asset(
-              product_picture,
+              productpicture,
               fit: BoxFit.cover,
             ),
             footer: Container(
               color: Colors.white60,
               child: ListTile(
                 leading: Text(
-                  product_name,
+                  productname,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                title: Text("₦$product_price",
+                title: Text("₦$productprice",
                     style: TextStyle(
                         color: Colors.red, fontWeight: FontWeight.w800)),
                 subtitle: Text(
-                  "₦$product_oldprice",
+                  "₦$productoldprice",
                   style: TextStyle(
-                      color: Colors.redAccent, fontWeight: FontWeight.w800, decoration: TextDecoration.lineThrough), 
+                      color: Colors.redAccent,
+                      fontWeight: FontWeight.w800,
+                      decoration: TextDecoration.lineThrough),
                 ),
               ),
             ),
