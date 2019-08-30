@@ -9,32 +9,32 @@ class HorizontalList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: <Widget>[
           Category(
-            image_location: 'images/tshirt.png',
-            image_caption: 'Shirt',
+            imagelocation: 'images/tshirt.png',
+            imagecaption: 'Shirt',
           ),
           Category(
-            image_location: 'images/shoe.png',
-            image_caption: 'Shoe',
+            imagelocation: 'images/shoe.png',
+            imagecaption: 'Shoe',
           ),
           Category(
-            image_location: 'images/jeans.png',
-            image_caption: 'Jean',
+            imagelocation: 'images/jeans.png',
+            imagecaption: 'Jean',
           ),
           Category(
-            image_location: 'images/informal.png',
-            image_caption: 'Informal',
+            imagelocation: 'images/informal.png',
+            imagecaption: 'Informal',
           ),
           Category(
-            image_location: 'images/formal.png',
-            image_caption: 'Formal',
+            imagelocation: 'images/formal.png',
+            imagecaption: 'Formal',
           ),
           Category(
-            image_location: 'images/dress.png',
-            image_caption: 'Dress',
+            imagelocation: 'images/dress.png',
+            imagecaption: 'Dress',
           ),
           Category(
-            image_location: 'images/watch.png',
-            image_caption: 'Watches',
+            imagelocation: 'images/watch.png',
+            imagecaption: 'Watches',
           ),
         ],
       ),
@@ -43,12 +43,12 @@ class HorizontalList extends StatelessWidget {
 }
 
 class Category extends StatelessWidget {
-  final String image_location;
-  final String image_caption;
+  final String imagelocation;
+  final String imagecaption;
 
   Category({
-    this.image_location,
-    this.image_caption,
+    this.imagelocation,
+    this.imagecaption,
   });
   @override 
   Widget build(BuildContext context) {
@@ -60,13 +60,13 @@ class Category extends StatelessWidget {
           width: 100.0,
           child: ListTile(
             title: Image.asset(
-              image_location,
+              imagelocation,
               width: 100.0,
               height: 80.0,
             ),
             subtitle: Container(
               alignment: Alignment.topCenter,
-               child: Text(image_caption, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),)
+               child: Text(imagecaption, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0),)
             ),
           ),
         ),
