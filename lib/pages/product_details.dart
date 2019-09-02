@@ -147,7 +147,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   'close',
                                   style: TextStyle(color: Colors.blue),
                                 ),
-                                color: Colors.blue,
                                 onPressed: () {
                                   Navigator.of(context).pop(context);
                                 },
@@ -187,7 +186,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   'close',
                                   style: TextStyle(color: Colors.blue),
                                 ),
-                                color: Colors.blue,
                                 onPressed: () {
                                   Navigator.of(context).pop(context);
                                 },
